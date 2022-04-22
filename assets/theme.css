@@ -5348,16 +5348,36 @@ html:not(.no-js) body.template-index .header--transparent-home:not(.is-sticky).h
     list-style:none
   }
 @media (min-width: 45em){
-      .login__links li + li:before{
-          content:'/';
-          padding:var(--spacing-small)
-      }
-        }
+  .login__links li + li:before{
+      content:'/';
+      padding:var(--spacing-small)
+  }
+}
 .account__subheading{
   margin-top:var(--spacing-small);
 }
 .account__breadcrumbs{
   margin-bottom:var(--spacing-medium)
+}
+
+.account__address {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+}
+
+.account__address div {
+  margin-top: var(--spacing-medium);
+}
+
+.account__plastic {
+  font-weight: var(--font-body-bold-weight);
+  text-align: center;
+}
+
+.account__plastic span {
+  font-size: 30px;
 }
 
 .template-customers-account main {
@@ -5366,15 +5386,43 @@ html:not(.no-js) body.template-index .header--transparent-home:not(.is-sticky).h
 
 .item__wrapper {
   display: flex;
-  margin-top: 1rem;
+  margin-top: var(--spacing-extra-small);
+  flex-direction: column;
+}
+
+.item__wrapper .item:not(:first-of-type) {
+  margin-top: var(--spacing-medium);
+}
+
+.item__wrapper .item:not(:first-of-type) img {
+  max-width: 75px;
+}
+
+@media (min-width: 45em){
+  .account__address > div, .account__address > p {
+    max-width: 33%;
+  }
+
+  .item__wrapper {
+    margin-top: 1rem;
+    flex-direction: row;
+  }
+
+  .account__address {
+    flex-direction: row;
+    margin-top: var(--spacing-medium);
+    margin-left: var(--spacing-extra-large);
+    margin-right: var(--spacing-extra-large);
+  }
+
+  .item__wrapper .item:not(:first-of-type) {
+    margin-left: var(--spacing-medium);
+    margin-top: 0;
+  }
 }
 
 .item__wrapper .item {
   display: flex;
-}
-
-.item__wrapper .item:not(:first-of-type) {
-  margin-left: var(--spacing-medium);
 }
 
 .item__wrapper .item > img {
@@ -5406,7 +5454,7 @@ html:not(.no-js) body.template-index .header--transparent-home:not(.is-sticky).h
 }
 
 .account__last p {
-  width: 50%;
+  width: 100%;
   padding: 1rem 0;
 }
 
@@ -5429,9 +5477,13 @@ html:not(.no-js) body.template-index .header--transparent-home:not(.is-sticky).h
 }
 @media (min-width: 45em){
 .account__breadcrumbs{
-    margin-bottom:var(--spacing-large)
-}
+  margin-bottom:var(--spacing-large)
   }
+
+  .account__last p {
+    width: 50%;
+  }
+}
 .account__breadcrumbs .breadcrumbs{
     display:flex;
     justify-content:center;
@@ -5469,11 +5521,11 @@ html:not(.no-js) body.template-index .header--transparent-home:not(.is-sticky).h
   margin:0;
 }
 .account__top{
-  margin-bottom:var(--spacing-large)
+  margin-top:var(--spacing-large)
 }
 @media (min-width: 45em){
 .account__top{
-    margin-bottom:var(--spacing-extra-extra-large)
+    margin-top:var(--spacing-extra-large);
 }
   }
 .account__col + .account__col{

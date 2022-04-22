@@ -17,7 +17,7 @@
       "vip_2_html": "Du bist momentan VIP 2, da du bereits <b> {{ amount }} Bestellung(en) </b> hast.",
       "next_level_html": "Bis zum <b> nächsten Level </b> fehlen dir nur noch <b> {{ amount }} Produkte </b>.",
       "plastic": "Du hast bereits {{ amount }} Plastikflaschen gespart",
-      "last_order_tip": "Du kannst ganz einfach mit einem Klick deine neuen Lieblingsproducts in den Warenkorb legen"
+      "last_order_tip": "Du kannst ganz einfach mit einem Klick deine neuen Lieblingsprodukte in den Warenkorb legen"
     },
 		"orders_paginate": "Bestellungen",
 		"title": "Mein Konto",

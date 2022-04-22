@@ -74,17 +74,19 @@
 
       <div class="account__top">
         <h2 class="account__col-heading ff-heading fs-heading-2-base">{{ 'customer.account.details' | t }}</h2>
-        <div>{{ customer.default_address | format_address }}</div>
-        <p class="account__cta-wrap">
-          {%- if customer.addresses.size > 1 -%}
-            <a class="btn btn--text-link" href="{{ routes.account_addresses_url }}">{{ 'account.view_addresses' | t }} ({{ customer.addresses_count }})</a>
-          {%- else -%}
-            <a class="btn btn--text-link" href="{{ routes.account_addresses_url }}">{{ 'account.add_address' | t }}</a>
-          {%- endif -%}
-        </p>
-        {% if customer.orders_count > 0 %}
-          <div> &#127870;  {{ 'account.status.plastic' | t: amount: savedPlasticCount }}</div>
-        {% endif %}
+        <div class="account__address">
+          <div>{{ customer.default_address | format_address }}</div>
+          <div class="account__cta-wrap">
+            {%- if customer.addresses.size > 1 -%}
+              <a class="btn btn--text-link" href="{{ routes.account_addresses_url }}">{{ 'account.view_addresses' | t }} ({{ customer.addresses_count }})</a>
+            {%- else -%}
+              <a class="btn btn--text-link" href="{{ routes.account_addresses_url }}">{{ 'account.add_address' | t }}</a>
+            {%- endif -%}
+          </div>
+          {% if customer.orders_count > 0 %}
+            <div class="account__plastic"><span>&#129412; </span>  {{ 'account.status.plastic' | t: amount: savedPlasticCount }}</div>
+          {% endif %}
+        </div>
       </div>
     </div>
 
