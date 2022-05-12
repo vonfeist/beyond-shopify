@@ -1,3 +1,7 @@
-.custom-account {
-	
+.custom-account .account__last {
+	background: rgba(255, 255, 255, 0.9);
+    border: 2.60964px solid #FFFFFF;
+    backdrop-filter: blur(9.91664px);
+  	-webkit-backdrop-filter:blur(9.91664px);
+    border-radius: 3.5rem;
 }
