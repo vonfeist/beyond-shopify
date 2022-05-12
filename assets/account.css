@@ -3,7 +3,7 @@
 }
 
 .custom-account .account__last {
-  	padding: 55px 63px 64px;
+  	padding: 55px 63px 55px;
 	background: rgba(255, 255, 255, 0.9);
     border: 2.60964px solid #FFFFFF;
     backdrop-filter: blur(9.91664px);
