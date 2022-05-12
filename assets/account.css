@@ -14,3 +14,7 @@
 .custom-account .account__last p {
   	width: 40%;
 }
+
+.custom-account .account__last .item__wrapper {
+  	margin-top: 43px;
+}
