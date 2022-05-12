@@ -38,7 +38,7 @@
       <div class="account__subheading fs-body-base fs-body-large-ns">
         {%- if customer.first_name != blank -%}
         <div class="account__info">
-          <h1>{{ 'account.welcome' | t: name: customer.first_name }} &#128075;</h1>
+          <h1 class='h1'>{{ 'account.welcome' | t: name: customer.first_name }} &#128075;</h1>
           {% if customer.orders_count >= 2 %}
             <span>{{ 'account.status.level.vip' | t }} &#127881;</span>
           {% endif %}
