@@ -1,35 +1,4 @@
-{% liquid
-  if customer.metafields.fields.status.value != blank
-    if customer.orders_count >= 2
-      assign status = 'VIP'
-      assign description = 'account.status.vip_1_html' | t: amount: customer.orders_count
-      assign neededProducts = 5
-    elsif customer.orders_count >= 5
-      assign status = 'VIP 2'
-      assign description = 'account.status.vip_2_html' | t: amount: customer.orders_count
-      assign neededProducts = 10
-    else
-      assign status = 'Basic'
-      assign description = 'account.status.basic_html' | t: amount: customer.orders_count
-      assign neededProducts = 0
-    endif
-  endif
 
-  assign productCount = 0;
-  for order in customer.orders
-    for product in order.line_items
-      assign productCount = productCount | plus: 1
-    endfor
-  endfor
-
-  assign savedPlasticCount = productCount | times: 2
-
-  if neededProducts == 0
-    assign missingAmount = 5
-  else
-    assign missingAmount = neededProducts | minus: productCount
-  endif
-%}
 
 <section class="account page {{ missingAmount }}">
   <div class="account__container page__inner">
