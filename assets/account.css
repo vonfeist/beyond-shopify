@@ -1,3 +1,7 @@
+.custom-account .account__subheading {
+	max-width: 500px;
+}
+
 .custom-account .account__last {
   	padding: 55px 63px 64px;
 	background: rgba(255, 255, 255, 0.9);
@@ -7,6 +11,6 @@
     border-radius: 35px;
 }
 
-.custom-account .account__subheading {
-	max-width: 500px;
+.custom-account .account__last p {
+  	width: 40%;
 }
