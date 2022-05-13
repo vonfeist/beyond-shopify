@@ -1,0 +1,80 @@
+{% comment %}
+<section class="account__last">
+  <h2 class='h2'> Deine Letzte Bestellung:</h2>
+  <p class'p-med'>{{ 'account.status.last_order_tip' | t }}</p>
+  <div class="item__wrapper">
+    {% for item in customer.last_order.line_items %}
+      <div class="item" id="item-{{ item.id }}" data-id="{{ item.variant.id }}">
+        <img src="{{ item.image | | img_url: 'thumbnail' }}" alt="{{ item.title}}">
+        <div class="item-content">
+          <h3>{{ item.title }}</h3>
+          <span class="money"> {{ item.price | money }}</span>
+          <button type="submit" name="add"
+          {% unless item.variant.available %} aria-disabled="true" disabled{% endunless %}
+          aria-label="{% unless item.variant.available %}{{ 'products.product.sold_out' | t }}{% else %}{{ 'products.product.add_to_cart' | t }}{% endunless %}"
+          class="account__cart-submit btn btn--small btn--medium-ns  btn--full btn--primary"
+          data-add-to-cart
+          data-variant-id="{{item.variant.id }}"
+          data-lang-available="{{ 'product.add_to_cart' | t }}"
+          data-lang-unavailable="{{ 'product.unavailable' | t }}"
+          data-lang-sold-out="{{ 'product.sold_out' | t }}"
+          >
+            {%- unless item.variant.available -%}
+              {{ 'products.product.sold_out' | t }}
+            {%- else -%}
+              {{ 'products.product.add_to_cart' | t }}
+            {%- endunless -%}
+        </button>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+{% endcomment %}
+
+<section class="account__last">
+  <h2 class='h2'> Deine Letzte Bestellung:</h2>
+  <p class='p-med'>{{ 'account.status.last_order_tip' | t }}</p>
+  
+  <div
+    class="custom-account__image-block"
+    data-flickity='{ "cellAlign": "left", "contain": true, "pageDots": false, "autoPlay": true, "watchCSS": true, "prevNextButtons": true, "groupCells": 1}'
+  >
+    {% for item in customer.last_order.line_items %}
+
+        <div class="product-card" id="item-{{ item.id }}" data-id="{{ item.variant.id }}">
+        
+          {% render 'image' with
+            image: item.image,
+       	    wrapper_class: 'custom-account__image-image',
+            disable_style: true,
+          %}
+
+          <div class="product-card__text-content">
+            <p class="h3">
+              <a class="custom-link" href="{{ item.url }}">
+                {{ item.title  }}
+              </a>
+            </p>
+
+            <div class="product-card__navigation">
+              <p class="p-xsmall">
+                {{ item.price | money }}
+              </p>
+              <p class="p-xsmall product-card__metafield">
+                {{ item.metafields.my_fields.discount }}
+              </p>
+            </div>
+
+            {% render 'product-form' with
+              product: block.settings.product,
+              current_variant: current_variant,
+              show_dynamic_checkout: block.settings.show_dynamic_checkout,
+              custom_text_input_title: custom_text_title
+            %}
+          </div>
+        </div>
+
+    {% endfor %}
+  </div>
+</section>
