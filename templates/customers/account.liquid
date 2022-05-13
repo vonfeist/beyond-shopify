@@ -61,7 +61,7 @@
       <div class="account__main">
         {% paginate customer.orders by 20 %}
           {% if customer.orders.size != 0 %}
-            {% render 'account-last-order' %}
+            {% render 'custom-account-last-order' %}
           {% else %}
             <h4 class="account__my-orders-heading">{{ 'account.orders.title' | t }}</h4>
             <div class="account__no-orders">
