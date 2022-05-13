@@ -5,7 +5,7 @@
   <div class="item__wrapper">
     {% for item in customer.last_order.line_items %}
       <div class="item" id="item-{{ item.id }}" data-id="{{ item.variant.id }}">
-        <img src="{{ item.image | | img_url: 'thumbnail' }}" alt="{{ item.title}}">
+        <img src="{{ item.image | img_url: 'thumbnail' }}" alt="{{ item.title}}">
         <div class="item-content">
           <h3>{{ item.title }}</h3>
           <span class="money"> {{ item.price | money }}</span>
